@@ -57,6 +57,7 @@ The configuration file that defines interactive prompts for users:
 - `email`: Author email
 - `github_username_or_organization`: GitHub username/org
 - `package_name`: Package name (e.g., "my-package")
+- `github_repository_url`: GitHub repository URL (auto-generated or "provide later")
 - `module_name`: Python module name (auto-generated from package_name)
 - `short_description`: Package description
 - `license`: License choice (BSD-3, MIT, Mozilla, Apache, LGPL, GPL)
@@ -103,11 +104,18 @@ shutil.rmtree("licenses", ignore_errors=True)
 5. **CI/CD**: GitHub Actions for testing, building, PyPI deployment
 
 ### Pre-commit Hooks (Generated Projects)
+- `check-docstring-first`: Ensures docstrings come before code
+- `check-executables-have-shebangs`: Validates executable scripts
+- `check-merge-conflict`: Detects merge conflict markers
+- `check-toml`: Validates TOML files
+- `end-of-file-fixer`: Ensures files end with newline
+- `mixed-line-ending`: Fixes line endings to LF
+- `requirements-txt-fixer`: Sorts requirements files
+- `trailing-whitespace`: Removes trailing whitespace
+- `ruff`: Linting (check mode)
+- `ruff-format`: Code formatting
+- `mypy`: Static type checking
 - `check-manifest`: Validates MANIFEST.in
-- `check-added-large-files`: Prevents large files
-- `check-toml`, `check-yaml`: Validates config files
-- `end-of-file-fixer`, `trailing-whitespace`: Formatting
-- `ruff`: Linting and formatting
 - `codespell`: Spell checking
 
 ### GitHub Actions Workflows
