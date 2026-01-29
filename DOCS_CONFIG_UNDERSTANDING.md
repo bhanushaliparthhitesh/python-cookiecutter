@@ -67,8 +67,7 @@ html_favicon = "_static/favicon.ico"
 **Theme Options:**
 - Uses PyData Sphinx Theme (same theme as Pandas, NumPy, SciPy)
 - **Navbar Configuration:**
-  - `navbar_start`: Logo position
-  - `navbar_center`: Navigation items
+  - `navbar_start`: Logo and navigation items (left-aligned)
   - Icon links to GitHub and Zulip chat
 - **Logo:** Displays project name + version
 - **Footer:** Custom footer sections
