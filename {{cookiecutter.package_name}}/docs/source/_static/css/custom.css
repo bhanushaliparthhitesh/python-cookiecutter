@@ -1,0 +1,38 @@
+/* Custom CSS for the documentation site */
+
+/* Theme colors */
+html[data-theme=dark] {
+    --pst-color-primary: #04B46D;
+    --pst-color-link: var(--pst-color-primary);
+}
+
+html[data-theme=light] {
+    --pst-color-primary: #03A062;
+    --pst-color-link: var(--pst-color-primary);
+}
+
+/* Adjust navbar header spacing */
+.bd-header .navbar-header-items__start {
+  margin-right: 0 !important;
+  padding-right: 1.5rem;
+}
+
+/* Navbar item styling */
+.navbar-header-items__start .navbar-item {
+  width: 100%;
+}
+
+.navbar-item .navbar-brand {
+  width: 100%;
+}
+
+.navbar-brand img {
+  min-width: 0;
+  height: auto;
+  max-height: 100%;
+  flex-shrink: 1;
+}
+
+.navbar-brand p {
+  flex: 0 1 auto;
+}

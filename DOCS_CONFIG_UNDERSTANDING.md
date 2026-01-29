@@ -215,11 +215,19 @@ author = "{{cookiecutter.full_name}}"
 - Simpler logo configuration
 - No footer customization
 
-#### 5. No Custom CSS (Lines 122-124)
+#### 5. Custom CSS Support (Lines 121-128)
 ```python
-# html_static_path = ['_static']  # Commented out!
+html_static_path = ['_static']
+
+def setup(app):
+    app.add_css_file("css/custom.css")
 ```
-**Important:** Template does NOT use custom CSS by default
+**NEW:** Template now includes custom CSS support with:
+- Brand colors (green theme)
+- Navbar header spacing adjustments
+- Responsive navbar styling
+
+**Custom CSS File:** `{{cookiecutter.package_name}}/docs/source/_static/css/custom.css`
 
 #### 6. Dynamic URLs (Lines 117-119)
 ```python
@@ -230,26 +238,88 @@ html_baseurl = f"https://{github_user}.github.io/{project}"
 
 ---
 
+## 4. Template Custom CSS (`{{cookiecutter.package_name}}/docs/source/_static/css/custom.css`)
+
+**Location:** `{{cookiecutter.package_name}}/docs/source/_static/css/custom.css`  
+**Purpose:** Custom styling for generated project documentation
+
+### Styling Sections
+
+#### 1. Theme Colors
+```css
+html[data-theme=dark] {
+    --pst-color-primary: #04B46D;  /* Bright green for dark mode */
+    --pst-color-link: var(--pst-color-primary);
+}
+
+html[data-theme=light] {
+    --pst-color-primary: #03A062;  /* Darker green for light mode */
+    --pst-color-link: var(--pst-color-primary);
+}
+```
+**Purpose:** Neuroinformatics Unit brand colors for both themes
+
+#### 2. Navbar Header Spacing
+```css
+.bd-header .navbar-header-items__start {
+  margin-right: 0 !important;
+  padding-right: 1.5rem;
+}
+```
+**Purpose:** Controls spacing between navbar logo/nav items and right-side elements
+
+#### 3. Navbar Item Styling
+```css
+.navbar-header-items__start .navbar-item { width: 100%; }
+.navbar-item .navbar-brand { width: 100%; }
+.navbar-brand img { 
+    min-width: 0; 
+    height: auto; 
+    max-height: 100%; 
+    flex-shrink: 1; 
+}
+```
+**Purpose:** Responsive navbar layout preventing logo overflow
+
+---
+
 ## Key Relationships
 
 ### conf.py → custom.css Connection
+**Root Documentation:**
 ```python
-# In conf.py (line 110-112)
+# In docs/source/conf.py (line 110-112)
 def setup(app):
     app.add_css_file("css/custom.css")
 ```
+
+**Template Documentation:**
+```python
+# In {{cookiecutter.package_name}}/docs/source/conf.py (lines 127-128)
+def setup(app):
+    app.add_css_file("css/custom.css")
+```
+
 This is the **critical link** - conf.py loads custom.css into every documentation page.
 
 ### File Paths
 ```
 docs/
 └── source/
-    ├── conf.py              # Sphinx configuration
+    ├── conf.py              # Sphinx configuration (loads custom.css)
     └── _static/
         ├── css/
-        │   └── custom.css   # Custom styles (referenced in conf.py)
+        │   └── custom.css   # Custom styles for cookiecutter docs
         ├── dark-logo-niu.png
         ├── light-logo-niu.png
+        └── favicon.ico
+
+{{cookiecutter.package_name}}/
+└── docs/source/
+    ├── conf.py              # Template Sphinx config (loads custom.css)
+    └── _static/
+        └── css/
+            └── custom.css   # Custom styles for generated projects
         └── favicon.ico
 ```
 
