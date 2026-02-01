@@ -10,8 +10,8 @@ on:
 
 jobs:
   linting:
-    # scheduled workflows should not run on forks
-    if: (${{ github.event_name == 'schedule' }} && ${{ github.repository_owner == 'neuroinformatics-unit' }} && ${{ github.ref == 'refs/heads/main' }}) || (${{ github.event_name != 'schedule' }})
+    # scheduled workflows should not run on forks - update repository_owner to match your organization
+    if: (${{ github.event_name == 'schedule' }} && ${{ github.repository_owner == 'bhanushaliparthhitesh' }} && ${{ github.ref == 'refs/heads/main' }}) || (${{ github.event_name != 'schedule' }})
     runs-on: ubuntu-latest
     steps:
       - uses: neuroinformatics-unit/actions/lint@v2

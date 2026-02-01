@@ -18,16 +18,16 @@ on:
 jobs:
   linting:
     # scheduled workflows should not run on forks
-    if: (${{ github.event_name == 'schedule' }} && ${{ github.repository_owner == 'neuroinformatics-unit' }} && ${{ github.ref == 'refs/heads/main' }}) || (${{ github.event_name != 'schedule' }})
+    if: {% raw %}(${{ github.event_name == 'schedule' }} && ${{ github.repository_owner == '{% endraw %}{{ cookiecutter.github_username_or_organization }}{% raw %}' }} && ${{ github.ref == 'refs/heads/main' }}) || (${{ github.event_name != 'schedule' }}){% endraw %}
     runs-on: ubuntu-latest
     steps:
-      - uses: neuroinformatics-unit/actions/lint@v2
+      - uses: {{ cookiecutter.github_actions_organization }}/actions/lint@v2
 
   build_sphinx_docs:
     name: Build Sphinx Docs
     runs-on: ubuntu-latest
     steps:
-      - uses: neuroinformatics-unit/actions/build_sphinx_docs@v2
+      - uses: {{ cookiecutter.github_actions_organization }}/actions/build_sphinx_docs@v2
 
   deploy_sphinx_docs:
     name: Deploy Sphinx Docs
@@ -37,6 +37,6 @@ jobs:
     if: github.event_name == 'push' && github.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
-      - uses: neuroinformatics-unit/actions/deploy_sphinx_docs@v2
+      - uses: {{ cookiecutter.github_actions_organization }}/actions/deploy_sphinx_docs@v2
         with:
-          secret_input: ${{ secrets.GITHUB_TOKEN }}
+          secret_input: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}

@@ -12,18 +12,18 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: neuroinformatics-unit/actions/lint@v2
+      - uses: {{ cookiecutter.github_actions_organization }}/actions/lint@v2
 
   manifest:
     name: Check Manifest
     runs-on: ubuntu-latest
     steps:
-      - uses: neuroinformatics-unit/actions/check_manifest@v2
+      - uses: {{ cookiecutter.github_actions_organization }}/actions/check_manifest@v2
 
   test:
     needs: [linting, manifest]
-    name: ${{ matrix.os }} py${{ matrix.python-version }}
-    runs-on: ${{ matrix.os }}
+    name: {% raw %}${{ matrix.os }} py${{ matrix.python-version }}{% endraw %}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         # Run all supported Python versions on linux
@@ -38,9 +38,9 @@ jobs:
 
     steps:
       # Run tests
-      - uses: neuroinformatics-unit/actions/test@v2
+      - uses: {{ cookiecutter.github_actions_organization }}/actions/test@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
 
   build_sdist_wheels:
     name: Build source distribution
@@ -48,7 +48,7 @@ jobs:
     if: github.event_name == 'push' && github.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
-    - uses: neuroinformatics-unit/actions/build_sdist_wheels@v2
+    - uses: {{ cookiecutter.github_actions_organization }}/actions/build_sdist_wheels@v2
 
 
   upload_all:
@@ -56,6 +56,6 @@ jobs:
     needs: [build_sdist_wheels]
     runs-on: ubuntu-latest
     steps:
-    - uses: neuroinformatics-unit/actions/upload_pypi@v2
+    - uses: {{ cookiecutter.github_actions_organization }}/actions/upload_pypi@v2
       with:
-        secret-pypi-key: ${{ secrets.TWINE_API_KEY }}
+        secret-pypi-key: {% raw %}${{ secrets.TWINE_API_KEY }}{% endraw %}
