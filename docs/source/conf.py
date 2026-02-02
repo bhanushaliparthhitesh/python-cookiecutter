@@ -69,7 +69,7 @@ html_favicon = "_static/favicon.ico"
 
 html_theme_options = {
     "navbar_start": ["navbar-logo"],
-    "navbar_align": "left",
+    # The icoon links has to removed for better UI experince 
     "icon_links": [
         {
             "name": "GitHub",
@@ -90,6 +90,28 @@ html_theme_options = {
     "footer_start": ["footer_start"],
     "footer_end": ["footer_end"],
     "external_links": [],
+}
+
+# Footer component .
+html_context = {
+    "footer_partners": [
+        {
+            "name": "Sainsbury Wellcome Centre",
+            "url": "https://www.sainsburywellcome.org/web/",
+            "logo_light": "_static/light-logo-swc.png",
+            "logo_dark": "_static/dark-logo-swc.png",
+        },
+        # Gatsby Computational Neuroscience Unit, UCL
+    ],
+    "footer_connect_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/neuroinformatics-unit/",
+            "icon": "fa-brands fa-github",
+            "type": "icon_only",
+        },
+        # LinkedIn, Zulip, Mastodon, Bluesky
+    ],
 }
 
 # Sitemap configuration
