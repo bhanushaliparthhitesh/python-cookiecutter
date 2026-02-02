@@ -271,36 +271,36 @@ body[data-hide-sidebar="true"] .bd-main {
     gap: 1.5rem;
     padding: 1.5rem 1rem;
   }
-  
+
   .footer-items__start {
     text-align: center;
   }
-  
+
   .footer-items__end {
     justify-content: center;
   }
-  
+
   .footer-redesigned {
     gap: 2rem;
   }
-  
+
   .footer-column {
     align-items: center;
     text-align: center;
   }
-  
+
   .footer-sponsors-grid {
     justify-content: center;
   }
-  
+
   .footer-links-group {
     justify-content: center;
   }
-  
+
   .footer-social-links {
     justify-content: center;
   }
-  
+
   .sponsor-logo {
     margin: 0 auto;
   }
@@ -311,15 +311,15 @@ body[data-hide-sidebar="true"] .bd-main {
   .footer-redesigned {
     gap: 1.5rem;
   }
-  
+
   .footer-heading {
     font-size: 0.875rem;
   }
-  
+
   .footer-link {
     font-size: 0.875rem;
   }
-  
+
   .sponsor-logo {
     height: 40px;
   }
