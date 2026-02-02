@@ -53,7 +53,6 @@ such as:
 * `Select github_repository_url:` - Default will be e.g. `https://github.com/<your-username>/my-awesome-software`, but you can also provide this later.
 * `module_name [my_awesome_software]:` - The default will be the same as `package_name` but with hyphens converted to underscores.
 * `short_description [A simple Python package]:` - Enter a simple, one-line description of your Python package.
-* `github_actions_organization [neuroinformatics-unit]:` - The GitHub organization that provides the GitHub Actions workflows. Leave as default if using the neuroinformatics-unit actions, or change to your organization if you have forked the actions repository.
 * `Select license:` - choose from:
   - `1 - BSD-3`
   - `2 - MIT`
