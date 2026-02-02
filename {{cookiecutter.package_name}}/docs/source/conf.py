@@ -92,7 +92,6 @@ html_title = "{{cookiecutter.package_name}}"
 
 # Customize the theme
 html_theme_options = {
-    "navbar_align": "left",
     "icon_links": [
         {
             # Label for this link
@@ -109,6 +108,28 @@ html_theme_options = {
     "logo": {
         "text": f"{project} v{release}",
     },
+}
+
+# Footer component .
+html_context = {
+    "footer_partners": [
+        {
+            "name": "Sainsbury Wellcome Centre",
+            "url": "https://www.sainsburywellcome.org/web/",
+            "logo_light": "_static/light-logo-swc.png",
+            "logo_dark": "_static/dark-logo-swc.png",
+        },
+        # Gatsby Computational Neuroscience Unit, UCL
+    ],
+    "footer_connect_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/neuroinformatics-unit/",
+            "icon": "fa-brands fa-github",
+            "type": "icon_only",
+        },
+        # LinkedIn, Zulip, Mastodon, Bluesky
+    ],
 }
 
 # Redirect the webpage to another URL
