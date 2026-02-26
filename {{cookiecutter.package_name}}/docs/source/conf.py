@@ -111,6 +111,61 @@ html_theme_options = {
     },
 }
 
+html_context = {
+    "footer_partners": [
+        {
+            "name": "Sainsbury Wellcome Centre",
+            "url": "https://www.sainsburywellcome.org/web/",
+            "logo_light": "_static/light-logo-swc.png",
+            "logo_dark": "_static/dark-logo-swc.png",
+        },
+        {
+            "name": "Gatsby Computational Neuroscience Unit",
+            "url": "https://www.ucl.ac.uk/gatsby/gatsby-computational-neuroscience-unit",
+            "logo_light": "_static/light-logo-gatsby.png",
+            "logo_dark": "_static/dark-logo-gatsby.png",
+        },
+        {
+            "name": "University College London",
+            "url": "https://www.ucl.ac.uk/",
+            "logo_light": "_static/light-logo-ucl.png",
+            "logo_dark": "_static/dark-logo-ucl.png",
+        },
+    ],
+    "footer_connect_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/neuroinformatics-unit/",
+            "icon": "fa-brands fa-github",
+            "type": "icon_only",
+        },
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/company/neuroinformatics-unit",
+            "icon": "fa-brands fa-linkedin",
+            "type": "icon_only",
+        },
+        {
+            "name": "Zulip Chat",
+            "url": "https://neuroinformatics.zulipchat.com/",
+            "icon": "fa-solid fa-comments",
+            "type": "icon_only",
+        },
+        {
+            "name": "Mastodon",
+            "url": "https://mastodon.online/@neuroinformatics",
+            "icon": "fa-brands fa-mastodon",
+            "type": "icon_only",
+        },
+        {
+            "name": "Bluesky",
+            "url": "https://bsky.app/profile/neuroinformatics.dev",
+            "icon": "fa-brands fa-bluesky",
+            "type": "icon_only",
+        },
+    ],
+}
+
 # Redirect the webpage to another URL
 # Sphinx will create the appropriate CNAME file in the build directory
 # The default is the URL of the GitHub pages
