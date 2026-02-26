@@ -140,4 +140,5 @@ linkcheck_anchors_ignore_for_url = [
 linkcheck_ignore = [
     "https://github.com/",
     "https://opensource.org/license/bsd-3-clause/",  # to avoid odd 403 error
+    "https://docutils.sourceforge.io/*" # to avoid frequent 403 error
 ]

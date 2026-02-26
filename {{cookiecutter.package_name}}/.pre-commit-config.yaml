@@ -20,7 +20,7 @@ repos:
           - id: requirements-txt-fixer
           - id: trailing-whitespace
     - repo: https://github.com/astral-sh/ruff-pre-commit
-      rev: v0.14.10
+      rev: v0.14.14
       hooks:
         - id: ruff
           args: [ --config=pyproject.toml ]
@@ -37,7 +37,10 @@ repos:
       hooks:
           - id: check-manifest
             args: [--no-build-isolation]
-            additional_dependencies: [setuptools-scm, wheel]
+            additional_dependencies:
+              - setuptools>=77
+              - wheel
+              - setuptools-scm[toml]>=8
     - repo: https://github.com/codespell-project/codespell
       # Configuration for codespell is in pyproject.toml
       rev: v2.4.1
